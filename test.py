@@ -1,7 +1,16 @@
-from aiogram import Bot, Dispatcher, types
-from db import create_users_table, add_user, redeem_token, set_subscribed, set_banned,get_user_count, is_user_useAPI, user_exists, is_user_banned,is_user_subscribed
-import os
+import asyncio
+from aiogram import Bot, Dispatcher, F
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.filters import Command
+from aiogram.types import Message, CallbackQuery
 from keepalive import keep_alive
+from aiogram.types import FSInputFile
+from aiogram import Bot
+from aiogram.types import ChatMember
+from db import create_users_table, add_user, redeem_token, set_subscribed, set_banned,get_user_count, is_user_useAPI, user_exists, is_user_banned,is_user_subscribed
+from aiogram.enums.chat_member_status import ChatMemberStatus
+from time import sleep
+import os
 from dotenv import load_dotenv
 
 keep_alive()
@@ -13,7 +22,7 @@ bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 @dp.message_handler(commands=["start"])
-async def start_handler(message: types.Message):
+async def start_handler(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False: 
         if user_exists(user_id):
@@ -28,7 +37,7 @@ async def start_handler(message: types.Message):
 
 
 @dp.message_handler(commands=["redeem"])
-async def redeem_handler(message: types.Message):
+async def redeem_handler(message: Message):
     user_id=message.from_user.id
     if is_user_banned(user_id)==False:
         args = message.text.split(maxsplit=1)
@@ -47,7 +56,7 @@ async def redeem_handler(message: types.Message):
         await message.reply("You're banned.")
 
 @dp.message_handler(commands=["ban"])
-async def ban_handler(message: types.Message):
+async def ban_handler(message: Message):
     user_id=message.from_user.id
     args = message.text.split(maxsplit=1)
     if user_id == 7674917466:
@@ -58,7 +67,7 @@ async def ban_handler(message: types.Message):
 
 
 @dp.message_handler(commands=["call"])
-async def ban_handler(message: types.Message):
+async def ban_handler(message: Message):
     user_id=message.from_user.id
     if is_user_banned(user_id)==False:
         if is_user_subscribed(user_id):
@@ -69,6 +78,7 @@ async def ban_handler(message: types.Message):
 async def on_startup(dp):
     create_users_table()
     print("Bot started.")
-
+async def main():
+    await dp.start_polling(bot)
 if __name__ == "__main__":
     asyncio.run(main())
