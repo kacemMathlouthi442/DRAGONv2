@@ -21,6 +21,13 @@ def create_users_table():
             """)
             conn.commit()
 
+def get_user_first_name(user_id):
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT first_name FROM users WHERE id = %s", (user_id,))
+            result = cur.fetchone()
+            return result[0] if result else None
+
 def add_user(user):
     with get_connection() as conn:
         with conn.cursor() as cur:
@@ -34,7 +41,7 @@ def add_user(user):
 def redeem_token(user_id, value=True):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("UPDATE users SET api_token = %s WHERE id = %s", (value, user_id))
+            cur.execute("UPDATE users SET API = %s WHERE id = %s", (value, user_id))
             conn.commit()
 
 def set_subscribed(user_id, value=True):
