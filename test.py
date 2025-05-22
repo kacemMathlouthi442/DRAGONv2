@@ -21,7 +21,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-@dp.message_handler(commands=["start"])
+@dp.message(commands=["start"])
 async def start_handler(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False: 
@@ -36,7 +36,7 @@ async def start_handler(message: Message):
         await message.reply("You're banned.")
 
 
-@dp.message_handler(commands=["redeem"])
+@dp.message(commands=["redeem"])
 async def redeem_handler(message: Message):
     user_id=message.from_user.id
     if is_user_banned(user_id)==False:
@@ -55,7 +55,7 @@ async def redeem_handler(message: Message):
     else:
         await message.reply("You're banned.")
 
-@dp.message_handler(commands=["ban"])
+@dp.message(commands=["ban"])
 async def ban_handler(message: Message):
     user_id=message.from_user.id
     args = message.text.split(maxsplit=1)
@@ -66,7 +66,7 @@ async def ban_handler(message: Message):
         await message.reply("🚫 Only admin can ban.")
 
 
-@dp.message_handler(commands=["call"])
+@dp.message(commands=["call"])
 async def ban_handler(message: Message):
     user_id=message.from_user.id
     if is_user_banned(user_id)==False:
