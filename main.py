@@ -7,7 +7,7 @@ from keepalive import keep_alive
 from aiogram.types import FSInputFile
 from aiogram import Bot
 from aiogram.types import ChatMember
-from db import create_users_table, add_user, redeem_token, set_subscribed, set_banned,get_user_count, is_user_useAPI, user_exists, is_user_banned,is_user_subscribe,get_user_first_name
+from db import create_users_table, add_user, redeem_token,set_unbanned, set_subscribed, set_banned,get_user_count, is_user_useAPI, user_exists, is_user_banned,is_user_subscribe,get_user_first_name
 from aiogram.enums.chat_member_status import ChatMemberStatus
 from time import sleep
 from dotenv import load_dotenv
@@ -29,13 +29,23 @@ async def is_user_subscribed_channel(bot: Bot, user_id, channel , vouches):
     except:
         return True
 
+@dp.message(Command("unban")) # DONE
+async def send_local_video(message: Message):
+    user_id = message.from_user.id
+    if user_id == 7674917466 or user_id == 7575518830:
+        args = message.text.split(maxsplit=1)
+        set_unbanned(int(args[1]),True)
+        await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' unbanned successfully!')
+    else:
+        await message.answer("🚫 Only admin can use this command.")
+
 @dp.message(Command("ban")) # DONE
 async def send_local_video(message: Message):
     user_id = message.from_user.id
     if user_id == 7674917466 or user_id == 7575518830:
         args = message.text.split(maxsplit=1)
         set_banned(int(args[1]),True)
-        await bot.send_message(chat_id=7674917466,text='user banned successfully!')
+        await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' banned successfully!')
 
         for msg_id in range(message.message_id - 200, message.message_id):
             try:
@@ -54,6 +64,7 @@ async def send_local_video(message: Message):
             await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
     else:
         await message.answer("🚫 Only admin can use this command.")
+        
 
 @dp.message(Command("start")) #DONE
 async def send_local_video(message: Message):
@@ -74,7 +85,7 @@ async def send_local_video(message: Message):
             ],
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches"),
             ],
             [
                 InlineKeyboardButton(text="⚙️ Commands", callback_data="Commands"),
@@ -345,7 +356,7 @@ async def send_local_video(message: Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -363,121 +374,127 @@ async def send_local_video(message: Message):
 @dp.callback_query(F.data.in_(["start"])) #DONE
 async def send_local_video(callback: CallbackQuery):
     user_id = callback.from_user.id
-    channel_username = "@dragonotpchannel"
-    vouches = "DRAGONv2_vouches"
-    if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
-        await callback.message.delete()
-        keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [
-                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-            ],
+    if is_user_banned(user_id):
+        channel_username = "@dragonotpchannel"
+        vouches = "DRAGONv2_vouches"
+        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+            await callback.message.delete()
+            keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                ],
+                [
+                    InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                    InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches"),
+                ],
+                [
+                    InlineKeyboardButton(text="⚙️ Commands", callback_data="Commands"),
+                    InlineKeyboardButton(text="🧠 Features", callback_data="Features")
+                ],
+                [
+                    InlineKeyboardButton(text="💳 Purchase Subscription", callback_data="Purchase")
+                ],
+                [
+                    InlineKeyboardButton(text="🎯 Enter Bot", callback_data="enter")
+                ]
+            ]
+            )
+            video = FSInputFile("img.jpg")  # Path to your local file
+            await callback.message.answer_photo(video, caption="""🐲 *DRAGON OTP v2\.0* \- Ultimate Spoofing Experience
+
+        *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
+
+        It combines cutting\-edge AI, global voice routing, and real\-time control to deliver the most advanced OTP grabbing experience on the market\.
+
+        Whether you're testing, analyzing, or automating — DRAGON OTP gives you the tools to dominate with speed, stealth, and precision\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
+        else:
+            keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
-                InlineKeyboardButton(text="⚙️ Commands", callback_data="Commands"),
-                InlineKeyboardButton(text="🧠 Features", callback_data="Features")
-            ],
-            [
-                InlineKeyboardButton(text="💳 Purchase Subscription", callback_data="Purchase")
-            ],
-            [
-                InlineKeyboardButton(text="🎯 Enter Bot", callback_data="enter")
+                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
             ]
-        ]
-        )
-        video = FSInputFile("img.jpg")  # Path to your local file
-        await callback.message.answer_photo(video, caption="""🐲 *DRAGON OTP v2\.0* \- Ultimate Spoofing Experience
+            ]
+            )
+            await callback.message.delete()
+            await callback.message.answer("""⚠️ *You didn't subscribe yet*
 
-    *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
+    To use the bot, please subscribe to the required channels and group\.
 
-    It combines cutting\-edge AI, global voice routing, and real\-time control to deliver the most advanced OTP grabbing experience on the market\.
-
-    Whether you're testing, analyzing, or automating — DRAGON OTP gives you the tools to dominate with speed, stealth, and precision\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
+    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+        await callback.answer() 
     else:
-        keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-            InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
-        ],
-        [
-            InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-        ]
-        ]
-        )
-        await callback.message.delete()
-        await callback.message.answer("""⚠️ *You didn't subscribe yet*
-
-To use the bot, please subscribe to the required channels and group\.
-
-👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-    await callback.answer() 
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 
 @dp.callback_query(F.data.in_(["Commands"]))#DONE
 async def handle_vote(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    channel_username = "@dragonotpchannel"
-    vouches = "@DRAGONv2_vouches"
-    if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+    if is_user_banned(user_id):
+        channel_username = "@dragonotpchannel"
+        vouches = "@DRAGONv2_vouches"
+        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+            keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+            ]
         ]
-    ]
-    )
-        await callback.message.delete()
-        await callback.message.answer("""🐲 DRAGON OTP v2.0  - 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 ( INTERNATIONAL CALLS )
-  ❓ 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 
-    🔑 》/redeem | 𝙍𝙚𝙙𝙚𝙚𝙢 𝙖 𝙠𝙚𝙮
-    📲 》/call | 𝘾𝙖𝙥𝙩𝙪𝙧𝙚 𝘼𝙣𝙮 𝙘𝙤𝙙𝙚 
-    📱 》/Phonelist | Check List of Latest Spoof Numbers  
-                                                 
-  📞 Available Services For /call command                 
-    》 Marcus | capture Marcus otp
-    》 zelle | capture zelle otp
-    》 Email | capture email otp
-    》 CIBC | capture CIBC otp
-    》 CashApp | capture cashapp otp
-    》 ApplePay | capture applepay otp
-    》 PayPal | capture paypal otp                                                            
-    》 BankofAmerica | capture bank of america otp 
-    》 Amazon | capture amazon otp
-    》 Gmail | capture gmail otp
-    》 wellsfargo | capture wellsfargo otp
-    》 Venmo | capture venmo otp                                  
-    》 citizens | capture citizens otp
-    》 CapitalOne | capture capitalone otp
-    》 Coinbase | capture coinbase otp
-    》 Afterpay | capture afterpay otp
-    》 Visa | capture visa otp
-    》 MasterCard | capture mastercard otp
-    》 Facebook | capture facebook otp
-    》 WhatsApp | capture whatsapp otp
-    》 Instagram | capture instagram otp""",reply_markup=keyboard)
+        )
+            await callback.message.delete()
+            await callback.message.answer("""🐲 DRAGON OTP v2.0  - 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 ( INTERNATIONAL CALLS )
+    ❓ 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 
+        🔑 》/redeem | 𝙍𝙚𝙙𝙚𝙚𝙢 𝙖 𝙠𝙚𝙮
+        📲 》/call | 𝘾𝙖𝙥𝙩𝙪𝙧𝙚 𝘼𝙣𝙮 𝙘𝙤𝙙𝙚 
+        📱 》/Phonelist | Check List of Latest Spoof Numbers  
+                                                    
+    📞 Available Services For /call command                 
+        》 Marcus | capture Marcus otp
+        》 zelle | capture zelle otp
+        》 Email | capture email otp
+        》 CIBC | capture CIBC otp
+        》 CashApp | capture cashapp otp
+        》 ApplePay | capture applepay otp
+        》 PayPal | capture paypal otp                                                            
+        》 BankofAmerica | capture bank of america otp 
+        》 Amazon | capture amazon otp
+        》 Gmail | capture gmail otp
+        》 wellsfargo | capture wellsfargo otp
+        》 Venmo | capture venmo otp                                  
+        》 citizens | capture citizens otp
+        》 CapitalOne | capture capitalone otp
+        》 Coinbase | capture coinbase otp
+        》 Afterpay | capture afterpay otp
+        》 Visa | capture visa otp
+        》 MasterCard | capture mastercard otp
+        》 Facebook | capture facebook otp
+        》 WhatsApp | capture whatsapp otp
+        》 Instagram | capture instagram otp""",reply_markup=keyboard)
+        else:
+            keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+            ],
+            [
+                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
+            ]
+        ]
+        )
+            await callback.message.delete()
+            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+
+    To use the bot, please subscribe to the required channels and group\.
+
+    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+        await callback.answer() 
     else:
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-            InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
-        ],
-        [
-            InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-        ]
-    ]
-    )
-        await callback.message.delete()
-        await callback.message.answer("""⚠️ *You are not subscribed to our channels*
-
-To use the bot, please subscribe to the required channels and group\.
-
-👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-    await callback.answer() 
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 
 @dp.message(Command("call")) #DONE
@@ -529,7 +546,7 @@ async def send_local_video(message: Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -548,113 +565,69 @@ async def send_local_video(message: Message):
 @dp.callback_query(F.data.in_(["Purchase"])) #DONE
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    channel_username = "@dragonotpchannel"
-    vouches = "@DRAGONv2_vouches"
-    if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-        ],
-        [
-            InlineKeyboardButton(text="💲 USDT", callback_data="usdt"),
-            InlineKeyboardButton(text="₿ BTC", callback_data="btc")
-        ],
-        [
-            InlineKeyboardButton(text="𝑳 LTC", callback_data="ltc"),
-            InlineKeyboardButton(text="◎ SOL", callback_data="sol")
+    if is_user_banned(user_id):
+        channel_username = "@dragonotpchannel"
+        vouches = "@DRAGONv2_vouches"
+        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+            keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            ],
+            [
+                InlineKeyboardButton(text="💲 USDT", callback_data="usdt"),
+                InlineKeyboardButton(text="₿ BTC", callback_data="btc")
+            ],
+            [
+                InlineKeyboardButton(text="𝑳 LTC", callback_data="ltc"),
+                InlineKeyboardButton(text="◎ SOL", callback_data="sol")
+            ]
         ]
-    ]
-    )
-        await callback.message.delete()
-        await callback.message.answer("""🐲 *DRAGON OTP v2\.0* Prices list 💰
-━━━━━━━━━━━━━━━━
-• 1 Day Plan *\(25$\)*
-• 2 Days Plan *\(30$\)*
-• 1 Week Plan *\(40$\)*
-• 2 Weeks Plan *\(55$\)* 
-• 1 Month Plan *\(70$\)*
-• 2 Months Plan *\(100$\)*
-• LifeTime Plan *\(350$\)*                               
-━━━━━━━━━━━━━━━━
- 
-📩 After payment\, send a screenshot to *SUPPORT* to verify your subscription\.
-❓ Need help or a different wallet\? Contact *SUPPORT*\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+        )
+            await callback.message.delete()
+            await callback.message.answer("""🐲 *DRAGON OTP v2\.0* Prices list 💰
+    ━━━━━━━━━━━━━━━━
+    • 1 Day Plan *\(25$\)*
+    • 2 Days Plan *\(30$\)*
+    • 1 Week Plan *\(40$\)*
+    • 2 Weeks Plan *\(55$\)* 
+    • 1 Month Plan *\(70$\)*
+    • 2 Months Plan *\(100$\)*
+    • LifeTime Plan *\(350$\)*                               
+    ━━━━━━━━━━━━━━━━
+    
+    📩 After payment\, send a screenshot to *SUPPORT* to verify your subscription\.
+    ❓ Need help or a different wallet\? Contact *SUPPORT*\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+        else:
+            keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+            ],
+            [
+                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
+            ]
+        ]
+        )
+            await callback.message.delete()
+            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+
+    To use the bot, please subscribe to the required channels and group\.
+
+    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+        await callback.answer() 
     else:
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-            InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
-        ],
-        [
-            InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-        ]
-    ]
-    )
-        await callback.message.delete()
-        await callback.message.answer("""⚠️ *You are not subscribed to our channels*
-
-To use the bot, please subscribe to the required channels and group\.
-
-👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-    await callback.answer() 
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 
 @dp.callback_query(F.data.in_(["Features"])) #DONE
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    channel_username = "@dragonotpchannel"
-    vouches = "@DRAGONv2_vouches"
-    if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
-        ]
-    ]
-    )
-        await callback.message.delete()
-        image = FSInputFile("img.jpg")  # Path to your local file
-        await callback.message.answer_photo(image, caption="""🐉 *UNIQUE FEATURES*
-
-🚀 Lightning Fast OTP Delivery  
-🎭 Custom Caller ID \(Spoofing Mode\)  
-🔊 AI Voice Calls with Human Detection  
-📞 Call Any Number Worldwide  
-📦 Multiple OTP Services Supported  
-📁 Live Call Recording \& Logs  
-📊 Real\-Time Dashboard \& Analytics  
-🔐 Encrypted Access \& Security  
-📲 Use Anywhere Anytime""",parse_mode='MarkdownV2',reply_markup=keyboard)
-    else:
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-            InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
-        ],
-        [
-            InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-        ]
-    ]
-    )
-        await callback.message.delete()
-        await callback.message.answer("""⚠️ *You are not subscribed to our channels*
-
-To use the bot, please subscribe to the required channels and group\.
-
-👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-    await callback.answer() 
-
-
-@dp.callback_query(F.data.in_(["enter"])) #DONE
-async def handle_vote1(callback: CallbackQuery, bot: Bot):
-    user_id = callback.from_user.id
-    channel_username = "@dragonotpchannel"
-    vouches = "@DRAGONv2_vouches"
-    if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
-        if is_user_subscribe(user_id):
+    if is_user_banned(user_id):
+        channel_username = "@dragonotpchannel"
+        vouches = "@DRAGONv2_vouches"
+        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -663,145 +636,219 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            video = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(video, caption="""🐲 *Dragon OTP v2\.0 Bot*
-📡 *Status*\: Fully Operational \| ⏱️ *Uptime: 100%*
+            image = FSInputFile("img.jpg")  # Path to your local file
+            await callback.message.answer_photo(image, caption="""🐉 *UNIQUE FEATURES*
 
-🚀 *Limited Access*\: Only few spots remaining\!
-
-⚠️ Active License Detected\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
+    🚀 Lightning Fast OTP Delivery  
+    🎭 Custom Caller ID \(Spoofing Mode\)  
+    🔊 AI Voice Calls with Human Detection  
+    📞 Call Any Number Worldwide  
+    📦 Multiple OTP Services Supported  
+    📁 Live Call Recording \& Logs  
+    📊 Real\-Time Dashboard \& Analytics  
+    🔐 Encrypted Access \& Security  
+    📲 Use Anywhere Anytime""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="💳 Purchase Subscription", callback_data="Purchase")
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+            ],
+            [
+                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
+            ]
+        ]
+        )
+            await callback.message.delete()
+            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+
+    To use the bot, please subscribe to the required channels and group\.
+
+    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+        await callback.answer() 
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")
+
+
+@dp.callback_query(F.data.in_(["enter"])) #DONE
+async def handle_vote1(callback: CallbackQuery, bot: Bot):
+    user_id = callback.from_user.id
+    if is_user_banned(user_id):
+        channel_username = "@dragonotpchannel"
+        vouches = "@DRAGONv2_vouches"
+        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+            if is_user_subscribe(user_id):
+                keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+                ]
+            ]
+            )
+                await callback.message.delete()
+                video = FSInputFile("img.jpg")  # Path to your local file
+                await callback.message.answer_photo(video, caption="""🐲 *Dragon OTP v2\.0 Bot*
+    📡 *Status*\: Fully Operational \| ⏱️ *Uptime: 100%*
+
+    🚀 *Limited Access*\: Only few spots remaining\!
+
+    ⚠️ Active License Detected\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
+            else:
+                keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="💳 Purchase Subscription", callback_data="Purchase")
+                ],
+                [
+                    InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+                ]
+            ]
+            )
+                await callback.message.delete()
+                video = FSInputFile("img.jpg")  # Path to your local file
+                await callback.message.answer_photo(video, caption="""🐲 *Dragon OTP v2\.0 Bot*
+    📡 *Status*\: Fully Operational \| ⏱️ *Uptime: 100%*
+
+    🚀 *Limited Access*\: Only few spots remaining\!
+
+    ⚠️ No Active License Detected\!
+
+    🔐 To activate the bot, you must first purchase a license\.
+    💸 We recommend getting a [LICENSE BUNDLE](https\://t\.me/dragonotpowner) for exclusive features and the best discounted price\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
+        else:
+            keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+            ],
+            [
+                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
+            ]
+        ]
+        )
+            await callback.message.delete()
+            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+
+    To use the bot, please subscribe to the required channels and group\.
+
+    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+        await callback.answer()
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")
+
+@dp.callback_query(F.data.in_(["btc"])) #DONE
+async def handle_vote1(callback: CallbackQuery):
+    user_id=callback.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
             ],
             [
                 InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
             ]
         ]
         )
-            await callback.message.delete()
-            video = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(video, caption="""🐲 *Dragon OTP v2\.0 Bot*
-📡 *Status*\: Fully Operational \| ⏱️ *Uptime: 100%*
-
-🚀 *Limited Access*\: Only few spots remaining\!
-
-⚠️ No Active License Detected\!
-
-🔐 To activate the bot, you must first purchase a license\.
-💸 We recommend getting a [LICENSE BUNDLE](https\://t\.me/dragonotpowner) for exclusive features and the best discounted price\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
-    else:
-        keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-            InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DragonOtp_Vouches1")
-        ],
-        [
-            InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-        ]
-    ]
-    )
         await callback.message.delete()
-        await callback.message.answer("""⚠️ *You are not subscribed to our channels*
-
-To use the bot, please subscribe to the required channels and group\.
-
-👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-    await callback.answer()
-
-@dp.callback_query(F.data.in_(["btc"])) #DONE
-async def handle_vote1(callback: CallbackQuery):
-    keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-        ],
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
-        ]
-    ]
-    )
-    await callback.message.delete()
-    await callback.message.answer("""*Bitcoin \(BTC\)*
-                                  
+        await callback.message.answer("""*Bitcoin \(BTC\)*
+                                    
 • `bc1q98y83fh28y6ysklu9qmla7enuegldmgdcdawvk`""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")    
 
 
 @dp.callback_query(F.data.in_(["usdt"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
-    keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-        ],
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+    user_id = callback.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            ],
+            [
+                InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+            ]
         ]
-    ]
-    )
-    await callback.message.delete()
-    await callback.message.answer("""*USDT \(TRC20\)*
-                                  
+        )
+        await callback.message.delete()
+        await callback.message.answer("""*USDT \(TRC20\)*
+                                    
 • `TRRVAuPEGJ4EgE33u1pV6gNUXxM1R5v1aY`""",parse_mode='MarkdownV2', reply_markup=keyboard)
-
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 @dp.callback_query(F.data.in_(["sol"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
-    keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-        ],
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+    user_id=callback.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            ],
+            [
+                InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+            ]
         ]
-    ]
-    )
-    await callback.message.delete()
-    await callback.message.answer("""*Solana \(SOL\)*
+        )
+        await callback.message.delete()
+        await callback.message.answer("""*Solana \(SOL\)*
                                   
 • `8Ra9HKVrKNakEeQfqDzrVn1sFoQoFmbR51UHMRweT9hY`""",parse_mode='MarkdownV2', reply_markup=keyboard)
-
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 @dp.callback_query(F.data.in_(["ltc"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
-    keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-        ],
-        [
-            InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+    user_id=callback.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            ],
+            [
+                InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+            ]
         ]
-    ]
-    )
-    await callback.message.delete()
-    await callback.message.answer("""*Litecoin \(LTC\)*
+        )
+        await callback.message.delete()
+        await callback.message.answer("""*Litecoin \(LTC\)*
                                   
 • `LRJ8n55djedy4jyKP3Kkqi6iEy3BYC1FLt`""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    else:
+        await callback.message.answer("🚫 You're banned from the bot.")
 
 @dp.message(lambda message: message.text and message.text.startswith('/'))
 async def unknown_command(message: Message):
-    keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [
-                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-            ]])
-    await message.answer("❌ Unknown command. Contact the support for help.",reply_markup=keyboard)
+    user_id=message.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                ]])
+        await message.answer("❌ Unknown command. Contact the support for help.",reply_markup=keyboard)
+    else:
+        await message.answer("🚫 You're banned from the bot.")
 # Fallback handler for unknown text messages
 
 @dp.message()
 async def unknown_text(message: Message):
-    keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [
-                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-            ]])
-    await message.answer("🤖 Sorry I didn't understand that. Please contact the support for any question.",reply_markup=keyboard)
-
+    user_id = message.from_user.id
+    if is_user_banned(user_id):
+        keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                ]])
+        await message.answer("🤖 Sorry I didn't understand that. Please contact the support for any question.",reply_markup=keyboard)
+    else:
+        await message.answer("🚫 You're banned from the bot.")
 # Run bot
 async def main():
     create_users_table()
