@@ -40,10 +40,12 @@ async def send_local_video(message: Message):
             await bot.unban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
             await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the channel.")
         except Exception as e:
-            await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
+            await bot.send_message(chat_id=7674917466,text="Failed to unban user: "+str(e))
         try:
             await bot.unban_chat_member(chat_id=-1002674411317, user_id=int(args[1]))
             await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the vouches.")
+        except Exception as e:
+            await bot.send_message(chat_id=7674917466,text="Failed to unban user: "+str(e))
     else:
         await message.answer("🚫 Only admin can use this command.")
 
