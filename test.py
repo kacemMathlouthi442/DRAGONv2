@@ -16,9 +16,8 @@ from dotenv import load_dotenv
 keep_alive()
 
 load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-bot = Bot(token=BOT_TOKEN)
+bot = Bot(token=os.environ.get('BOT_TOKEN'))
 dp = Dispatcher()
 
 @dp.message(commands=["start"])
