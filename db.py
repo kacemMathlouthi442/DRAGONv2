@@ -21,6 +21,14 @@ def create_users_table():
             """)
             conn.commit()
 
+
+def get_user_first_name(user_id: int):
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT first_name FROM users WHERE id = %s", (user_id,))
+            result = cur.fetchone()
+            return result[0] if result else None
+
 def add_user(user):
     with get_connection() as conn:
         with conn.cursor() as cur:
