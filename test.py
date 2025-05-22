@@ -66,7 +66,7 @@ async def send_local_video(message: Message):
             username='None'
         if user_exists(iduser)==False:
             add_user(message.from_user)
-            await bot.send_message(chat_id=7674917466,text='🆕 New user\nUsername: '+username+'\nName: '+name+'\nUser ID: '+str(iduser)+'\nTotal users: '+str(get_user_count()))
+            await bot.send_message(chat_id=7674917466,text='🆕 New user\nUsername: '+username+'\nName: '+get_user_first_name(iduser)+'\nUser ID: '+str(iduser)+'\nTotal users: '+str(get_user_count()))
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
