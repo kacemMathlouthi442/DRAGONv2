@@ -54,14 +54,14 @@ def set_subscribed(user_id, value=True):
 def set_banned(user_id, value=True):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("UPDATE users SET banned = %s WHERE id = %s", (user_id,value))
+            cur.execute("UPDATE users SET banned = %s WHERE id = %s", (value,user_id))
             conn.commit()
 
 
 def set_unbanned(user_id, value=False):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("UPDATE users SET banned = %s WHERE id = %s", (user_id,value))
+            cur.execute("UPDATE users SET banned = %s WHERE id = %s", (value,user_id))
             conn.commit()
 
 def get_user_count():
