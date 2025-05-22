@@ -11,6 +11,7 @@ from db import create_users_table, add_user, redeem_token,set_unbanned, set_subs
 from aiogram.enums.chat_member_status import ChatMemberStatus
 from time import sleep
 from dotenv import load_dotenv
+import re
 import os
 
 keep_alive()
@@ -19,7 +20,9 @@ load_dotenv()
 bot = Bot(token=os.environ.get('token'))
 dp = Dispatcher()
 
-
+def escape_markdown(text: str) -> str:
+    escape_chars = r"_*[]()~`>#+-=|{}.!\\,"
+    return re.sub(f"([{re.escape(escape_chars)}])", r"\\\1", text)
 
 async def is_user_subscribed_channel(bot: Bot, user_id, channel , vouches):
     try:
@@ -87,7 +90,7 @@ async def send_local_video(message: Message):
             username='None'
         if user_exists(iduser)==False:
             add_user(message.from_user)
-            await bot.send_message(chat_id=7674917466,text='🆕 New user\nUsername: '+username+'\nName: '+get_user_first_name(iduser)+'\nUser ID: '+str(iduser)+'\nTotal users: '+str(get_user_count()))
+            await bot.send_message(chat_id=7674917466,text='🆕 *New user*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(iduser))+'`\n*User ID*\: `'+str(iduser)+'`\n*Total users*\: '+str(get_user_count()),parse_mode='MarkdownV2')
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -112,7 +115,7 @@ async def send_local_video(message: Message):
         image = FSInputFile("img.jpg")  # Path to your local file
         await message.answer_photo(image, caption="""*The Ultimate Spoofing Experience*
                                 
-    Hello *"""+name+"""*\, Welcome to *DRAGON OTP v2\.0* 🐲\.                         
+    Hello *"""+escape_markdown(name)+"""*\, Welcome to *DRAGON OTP v2\.0* 🐲\.                         
     *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
 
     Powered by advanced *AI*\, global *voice routing*\, and *real\-time control*\, it delivers unmatched OTP grabbing performance\.
@@ -411,13 +414,19 @@ async def send_local_video(callback: CallbackQuery):
             ]
             )
             video = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(video, caption="""🐲 *DRAGON OTP v2\.0* \- Ultimate Spoofing Experience
+            await callback.message.answer_photo(video, caption="""*The Ultimate Spoofing Experience*
+                                
+    Hello *"""+escape_markdown(get_user_first_name(user_id))+"""*\, Welcome to *DRAGON OTP v2\.0* 🐲\.                         
+    *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
 
-        *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
+    Powered by advanced *AI*\, global *voice routing*\, and *real\-time control*\, it delivers unmatched OTP grabbing performance\.
 
-        It combines cutting\-edge AI, global voice routing, and real\-time control to deliver the most advanced OTP grabbing experience on the market\.
+    ✅ *Lightning\-fast execution*
+    ✅ *Stealth\-grade spoofing*
+    ✅ *Full automation tools*
+    ✅ *Global reach with 100% uptime*
 
-        Whether you're testing, analyzing, or automating — DRAGON OTP gives you the tools to dominate with speed, stealth, and precision\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
+    Whether you're *testing*\, *analyzing*\, or *automating* — DRAGON OTP gives you the *precision*\, *power*\, and *stealth* you need to *dominate*\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
 
