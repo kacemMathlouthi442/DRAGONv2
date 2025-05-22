@@ -25,7 +25,7 @@ def create_users_table():
 def get_user_first_name(user_id: int):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT first_name FROM users WHERE id = %s", (user_id,))
+            cur.execute("SELECT first_name FROM users WHERE id = %s", (user_id))
             result = cur.fetchone()
             return result[0] if result else None
 
@@ -75,22 +75,22 @@ def get_user_count():
 def is_user_useAPI(user_id: int):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT API FROM users WHERE id = %s", (user_id,))
+            cur.execute("SELECT API FROM users WHERE id = %s", (user_id))
             result = cur.fetchone()
             return result[0] if result else False
         
 def user_exists(user_id: int):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT 1 FROM users WHERE id = %s", (user_id,))
+            cur.execute("SELECT 1 FROM users WHERE id = %s", (user_id))
             return cur.fetchone() is not None
         
 def is_user_banned(user_id: int):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT banned FROM users WHERE id = %s", (user_id,))
+            cur.execute("SELECT banned FROM users WHERE id = %s", (user_id))
             result = cur.fetchone()
-            return result
+            return result[0] if result else False
         
 def is_user_subscribe(user_id: int):
     with get_connection() as conn:
