@@ -385,7 +385,7 @@ async def send_local_video(message: Message):
 @dp.callback_query(F.data.in_(["start"])) #DONE
 async def send_local_video(callback: CallbackQuery):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
         vouches = "DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
@@ -419,25 +419,6 @@ async def send_local_video(callback: CallbackQuery):
         It combines cutting\-edge AI, global voice routing, and real\-time control to deliver the most advanced OTP grabbing experience on the market\.
 
         Whether you're testing, analyzing, or automating — DRAGON OTP gives you the tools to dominate with speed, stealth, and precision\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
-        else:
-            keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-            [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
-            ],
-            [
-                InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
-            ]
-            ]
-            )
-            await callback.message.delete()
-            await callback.message.answer("""⚠️ *You didn't subscribe yet*
-
-    To use the bot, please subscribe to the required channels and group\.
-
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
-        await callback.answer() 
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
 
@@ -445,7 +426,7 @@ async def send_local_video(callback: CallbackQuery):
 @dp.callback_query(F.data.in_(["Commands"]))#DONE
 async def handle_vote(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
         vouches = "@DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
@@ -576,7 +557,7 @@ async def send_local_video(message: Message):
 @dp.callback_query(F.data.in_(["Purchase"])) #DONE
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
         vouches = "@DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
@@ -635,7 +616,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
 @dp.callback_query(F.data.in_(["Features"])) #DONE
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
         vouches = "@DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
@@ -685,7 +666,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
 @dp.callback_query(F.data.in_(["enter"])) #DONE
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
         vouches = "@DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
@@ -752,7 +733,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
 @dp.callback_query(F.data.in_(["btc"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
     user_id=callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -774,7 +755,7 @@ async def handle_vote1(callback: CallbackQuery):
 @dp.callback_query(F.data.in_(["usdt"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
     user_id = callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -795,7 +776,7 @@ async def handle_vote1(callback: CallbackQuery):
 @dp.callback_query(F.data.in_(["sol"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
     user_id=callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -816,7 +797,7 @@ async def handle_vote1(callback: CallbackQuery):
 @dp.callback_query(F.data.in_(["ltc"])) #DONE
 async def handle_vote1(callback: CallbackQuery):
     user_id=callback.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -837,7 +818,7 @@ async def handle_vote1(callback: CallbackQuery):
 @dp.message(lambda message: message.text and message.text.startswith('/'))
 async def unknown_command(message: Message):
     user_id=message.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
@@ -851,7 +832,7 @@ async def unknown_command(message: Message):
 @dp.message()
 async def unknown_text(message: Message):
     user_id = message.from_user.id
-    if is_user_banned(user_id):
+    if is_user_banned(user_id)==False:
         keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
