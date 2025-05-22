@@ -34,7 +34,7 @@ async def send_local_video(message: Message):
     user_id = message.from_user.id
     if user_id == 7674917466 or user_id == 7575518830:
         args = message.text.split(maxsplit=1)
-        set_unbanned(int(args[1]),True)
+        set_unbanned(int(args[1]),False)
         await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' unbanned successfully!')
     else:
         await message.answer("🚫 Only admin can use this command.")
