@@ -1,5 +1,4 @@
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
 from db import create_users_table, add_user, redeem_token, set_subscribed, set_banned,get_user_count, is_user_useAPI, user_exists, is_user_banned,is_user_subscribed
 import os
 from keepalive import keep_alive
@@ -72,4 +71,4 @@ async def on_startup(dp):
     print("Bot started.")
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
+    asyncio.run(main())
