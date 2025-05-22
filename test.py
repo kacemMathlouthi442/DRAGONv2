@@ -37,7 +37,7 @@ async def send_local_video(message: Message):
         set_banned(int(args[1]),True)
         await bot.send_message(chat_id=7674917466,text='user banned successfully!')
 
-        for msg_id in range(message.message_id - 50, message.message_id):
+        for msg_id in range(message.message_id - 200, message.message_id):
             try:
                 await bot.delete_message(chat_id=int(args[1]), message_id=msg_id)
             except:
@@ -267,7 +267,7 @@ async def send_local_video(message: Message): #DONE
                 [
                     InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
                 ]])
-                for msg_id in range(message.message_id - 100, message.message_id):
+                for msg_id in range(message.message_id - 200, message.message_id):
                     try:
                         await bot.delete_message(chat_id=int(user_id), message_id=msg_id)
                     except:
