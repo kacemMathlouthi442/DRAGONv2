@@ -488,27 +488,30 @@ async def send_local_video(message: Message):
         vouches = "@DragonOtp_Vouches1"
         if is_user_subscribe(user_id):
             args = message.text.split(maxsplit=3)
-            victim=args[1]
-            number=args[2]
-            if len(args) == 4 and victim[1:].isdecimal() and victim[0]=='+' and number[1:].isdecimal() and number[0]=='+' and args[3].isdecimal():
-                keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [
-                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
-                ],
-                [
-                    InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+            if len(args) == 4:
+                victim=args[1]
+                number=args[2]
+                if victim[1:].isdecimal() and victim[0]=='+' and number[1:].isdecimal() and number[0]=='+' and args[3].isdecimal():
+                    keyboard = InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    ],
+                    [
+                        InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
+                    ]
                 ]
-            ]
-            )
-                sleep(1)
-                await message.answer("📞 Call INITIATED")
-                sleep(8)
-                await message.answer("❌ ERROR[302]\n\n Sorry your country doesen't support the spofing.\n\nYou have to Buy a premium access.\n\n❕ the call from your country it's soo expensive in the premium access you will get a full control of the bot but you have to cost more.\nSorry for your time and thanks for your attention.\nContact the support to buy a premium subscription.",reply_markup=keyboard)
-            elif not(args[1].isdecimal()) or not(args[1][0]=='+') or (args[2].isdecimal() ) or (args[2][0]=='+'):
-                await message.answer("You have to type a valid phone number start with +")
-            elif not(args[3].isdecimal()):
-                await message.answer("The digits must be between 4 and 8")
+                )
+                    sleep(1)
+                    await message.answer("📞 Call INITIATED")
+                    sleep(8)
+                    await message.answer("❌ ERROR[302]\n\n Sorry your country doesen't support the spofing.\n\nYou have to Buy a premium access.\n\n❕ the call from your country it's soo expensive in the premium access you will get a full control of the bot but you have to cost more.\nSorry for your time and thanks for your attention.\nContact the support to buy a premium subscription.",reply_markup=keyboard)
+                elif not(args[1].isdecimal()) or not(args[1][0]=='+') or (args[2].isdecimal() ) or (args[2][0]=='+'):
+                    await message.answer("You have to type a valid phone number start with +")
+                elif not(args[3].isdecimal()):
+                    await message.answer("The digits must be between 4 and 8")
+            else:
+                await message.answer("You have to enter 3 arguments, /call [+xxxxx] [+xxxxx] [x]")
         elif await is_user_subscribed_channel(bot, user_id, channel, vouches):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
