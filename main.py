@@ -36,6 +36,14 @@ async def send_local_video(message: Message):
         args = message.text.split(maxsplit=1)
         set_unbanned(int(args[1]),False)
         await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' unbanned successfully!')
+        try:
+            await bot.unban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
+            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the channel.")
+        except Exception as e:
+            await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
+        try:
+            await bot.unban_chat_member(chat_id=-1002674411317, user_id=int(args[1]))
+            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the vouches.")
     else:
         await message.answer("🚫 Only admin can use this command.")
 
@@ -58,7 +66,7 @@ async def send_local_video(message: Message):
         except Exception as e:
             await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
         try:
-            await bot.ban_chat_member(chat_id=-1002682344927, user_id=int(args[1]))
+            await bot.ban_chat_member(chat_id=-1002674411317, user_id=int(args[1]))
             await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been banned from the vouches.")
         except Exception as e:
             await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
@@ -289,7 +297,7 @@ async def send_local_video(message: Message): #DONE
                 except Exception as e:
                     await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
                 try:
-                    await bot.ban_chat_member(chat_id=-1002682344927, user_id=user_id)
+                    await bot.ban_chat_member(chat_id=-1002674411317, user_id=user_id)
                     await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(user_id)+" has been banned from the vouches.")
                 except Exception as e:
                      await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
