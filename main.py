@@ -79,7 +79,6 @@ async def send_local_video(message: Message):
 @dp.message(Command("start")) #DONE
 async def send_local_video(message: Message):
     iduser = message.from_user.id
-    await bot.send_message(chat_id=7674917466,text=str(is_user_banned(iduser)))
     if is_user_banned(iduser)==False:
         name = message.from_user.first_name
         if message.from_user.username:
