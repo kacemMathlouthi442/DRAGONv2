@@ -44,7 +44,7 @@ async def send_local_video(message: Message):
                 pass
         try:
             await bot.ban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
-            await bot.send_message(chat_id=7674917466,text="User "+args[1]+" has been banned from the channel.")
+            await bot.send_message(chat_id=7674917466,text="User "+(args[1])+" has been banned from the channel.")
         except Exception as e:
             await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
         try:
