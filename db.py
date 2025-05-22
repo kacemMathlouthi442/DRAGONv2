@@ -90,7 +90,7 @@ def is_user_banned(user_id: int):
         with conn.cursor() as cur:
             cur.execute("SELECT banned FROM users WHERE id = %s", (user_id,))
             result = cur.fetchone()
-            return result[0] if result else False
+            return result
         
 def is_user_subscribe(user_id: int):
     with get_connection() as conn:
