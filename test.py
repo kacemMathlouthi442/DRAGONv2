@@ -784,8 +784,8 @@ async def unknown_text(message: Message):
 
 # Run bot
 async def main():
+    create_users_table()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
     asyncio.run(main())
-    create_users_table()
