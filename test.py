@@ -488,7 +488,9 @@ async def send_local_video(message: Message):
         vouches = "@DragonOtp_Vouches1"
         if is_user_subscribe(user_id):
             args = message.text.split(maxsplit=3)
-            if len(args) == 4:
+            if len(args)!=4:
+                await message.answer("You have to enter 3 arguments, /call [+xxxxx] [+xxxxx] [x]")
+            else:
                 victim=args[1]
                 number=args[2]
                 if victim[1:].isdecimal() and victim[0]=='+' and number[1:].isdecimal() and number[0]=='+' and args[3].isdecimal():
@@ -510,8 +512,6 @@ async def send_local_video(message: Message):
                     await message.answer("You have to type a valid phone number start with +")
                 elif not(args[3].isdecimal()):
                     await message.answer("The digits must be between 4 and 8")
-            else:
-                await message.answer("You have to enter 3 arguments, /call [+xxxxx] [+xxxxx] [x]")
         elif await is_user_subscribed_channel(bot, user_id, channel, vouches):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
