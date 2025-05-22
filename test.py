@@ -295,7 +295,7 @@ async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DragonOtp_Vouches1"
+        vouches = "@DRAGONv2_vouches"
         if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
             if is_user_subscribe(user_id):
                 keyboard = InlineKeyboardMarkup(
@@ -364,7 +364,7 @@ async def send_local_video(message: Message):
 async def send_local_video(callback: CallbackQuery):
     user_id = callback.from_user.id
     channel_username = "@dragonotpchannel"
-    vouches = "@DragonOtp_Vouches1"
+    vouches = "DRAGONv2_vouches"
     if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
         await callback.message.delete()
         keyboard = InlineKeyboardMarkup(
@@ -421,7 +421,7 @@ To use the bot, please subscribe to the required channels and group\.
 async def handle_vote(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     channel_username = "@dragonotpchannel"
-    vouches = "@DragonOtp_Vouches1"
+    vouches = "@DRAGONv2_vouches"
     if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
         keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -485,7 +485,7 @@ async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
         channel = "@dragonotpchannel"
-        vouches = "@DragonOtp_Vouches1"
+        vouches = "@DRAGONv2_vouches"
         if is_user_subscribe(user_id):
             args = message.text.split(maxsplit=3)
             if len(args)!=4:
@@ -549,7 +549,7 @@ async def send_local_video(message: Message):
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     channel_username = "@dragonotpchannel"
-    vouches = "@DragonOtp_Vouches1"
+    vouches = "@DRAGONv2_vouches"
     if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
         keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -605,7 +605,7 @@ To use the bot, please subscribe to the required channels and group\.
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     channel_username = "@dragonotpchannel"
-    vouches = "@DragonOtp_Vouches1"
+    vouches = "@DRAGONv2_vouches"
     if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
         keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -652,7 +652,7 @@ To use the bot, please subscribe to the required channels and group\.
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     channel_username = "@dragonotpchannel"
-    vouches = "@DragonOtp_Vouches1"
+    vouches = "@DRAGONv2_vouches"
     if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
         if is_user_subscribe(user_id):
             keyboard = InlineKeyboardMarkup(
