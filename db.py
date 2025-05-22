@@ -4,10 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-
 def get_connection():
-    return psycopg.connect(DATABASE_URL)
+    return psycopg.connect(os.environ.get("DATABASE_URL"))
 
 def create_users_table():
     with get_connection() as conn:
