@@ -117,7 +117,7 @@ async def send_local_video(message: Message): #DONE
             sleep(1)
             await message.answer("⌛ Please wait.")
             sleep(5)
-            redeem_token(True,user_id)
+            redeem_token(user_id,True)
             await message.answer("✅ API Token redeemed successfuly!")
         else:
             if args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa1':
