@@ -773,9 +773,6 @@ async def unknown_command(message: Message):
     await message.answer("❌ Unknown command. Contact the support for help.",reply_markup=keyboard)
 # Fallback handler for unknown text messages
 
-async def on_startup(dp):
-    create_users_table()
-
 @dp.message()
 async def unknown_text(message: Message):
     keyboard = InlineKeyboardMarkup(
@@ -791,3 +788,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+    create_users_table()
