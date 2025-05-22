@@ -117,7 +117,7 @@ async def send_local_video(message: Message): #DONE
             sleep(1)
             await message.answer("⌛ Please wait.")
             sleep(5)
-            redeem_token(user_id,True)
+            redeem_token(True,user_id)
             await message.answer("✅ API Token redeemed successfuly!")
         else:
             if args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa1':
@@ -136,13 +136,13 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa2':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ 2-Days key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -153,13 +153,13 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa7':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ 1-Week key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -170,13 +170,13 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC14':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ 2-Weeks key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -187,13 +187,13 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC30':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ 1-Month key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -204,13 +204,30 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC60':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ 2-Months key redeemed successfuly!")
+                    set_subscribed(user_id)
+                else:
+                    keyboard = InlineKeyboardMarkup(
+                    inline_keyboard=[
+                    [
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    ]])
+                    sleep(1)
+                    await message.answer("⌛ Please wait.")
+                    sleep(9)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+            elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhCaN':
+                if is_user_useAPI(user_id):
+                    sleep(1)
+                    await message.answer("⌛ Please wait.")
+                    sleep(5)
+                    await message.answer("✅ Custom key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -222,12 +239,12 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhCaN':
+            elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhClT':
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(5)
-                    await message.answer("✅ 1-Day key redeemed successfuly!")
+                    await message.answer("✅ LifeTime key redeemed successfuly!")
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -243,7 +260,7 @@ async def send_local_video(message: Message): #DONE
                 sleep(1)
                 await message.answer("⌛ Please wait.")
                 sleep(5)
-                await message.answer("✅ 1-Day key redeemed successfuly!")
+                await message.answer("✅ Premium key redeemed successfuly!")
                 set_banned(user_id)
                 keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
