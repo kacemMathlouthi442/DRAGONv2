@@ -104,7 +104,7 @@ async def send_local_video(message: Message):
         image = FSInputFile("img.jpg")  # Path to your local file
         await message.answer_photo(image, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
                                 
-Hello *"""+escape_markdown(name)+"""\,                         
+Hello *"""+escape_markdown(name)+"""*\,                         
 Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
 🔥 *Why DRAGON OTP?*
@@ -400,7 +400,7 @@ async def send_local_video(callback: CallbackQuery):
             video = FSInputFile("img.jpg")  # Path to your local file
             await callback.message.answer_photo(video, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
                                 
-Hello *"""+escape_markdown(get_user_first_name(user_id))+"""\,                         
+Hello *"""+escape_markdown(get_user_first_name(user_id))+"""*\,                         
 Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
 🔥 *Why DRAGON OTP?*
