@@ -102,13 +102,13 @@ async def send_local_video(message: Message):
         ]
         )
         image = FSInputFile("img.jpg")  # Path to your local file
-        await message.answer_photo(image, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
+        await message.answer_photo(image, caption="""🐲 *Welcome to DRAGON OTP v2\.0 — The Ultimate Spoofing Experience*
                                 
 Hello *"""+escape_markdown(name)+"""*\,                         
-Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
+Step into the future of OTP spoofing with *DRAGON OTP v2\.0* — the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
 🔥 *Why DRAGON OTP?*
-Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control \— all designed to deliver *unrivaled OTP capture performance*\.
+Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control — all designed to deliver *unrivaled OTP capture performance*\.
 
 🚀 *Core Features*
 ⚡️ Blazing\-Fast Execution
@@ -117,7 +117,7 @@ Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and s
 📌 Global Coverage with 100% Uptime
 
 Whether you're *testing systems*\, *analyzing behavior*\, or *building automation workflows*\, *DRAGON OTP* empowers you with the *precision*\, *power*\, and *stealth* needed to lead\.
-  *Dominate your domain \— with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
+  *Dominate your domain — with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
     else:
         await message.answer("🚫 You're banned from the bot.")
 
@@ -398,13 +398,13 @@ async def send_local_video(callback: CallbackQuery):
             ]
             )
             video = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(video, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
+            await callback.message.answer_photo(video, caption="""🐲 *Welcome to DRAGON OTP v2\.0 — The Ultimate Spoofing Experience*
                                 
 Hello *"""+escape_markdown(get_user_first_name(user_id))+"""*\,                         
-Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
+Step into the future of OTP spoofing with *DRAGON OTP v2\.0* — the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
 🔥 *Why DRAGON OTP?*
-Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control \— all designed to deliver *unrivaled OTP capture performance*\.
+Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control — all designed to deliver *unrivaled OTP capture performance*\.
 
 🚀 *Core Features*
 ⚡️ Blazing\-Fast Execution
@@ -413,7 +413,7 @@ Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and s
 📌 Global Coverage with 100% Uptime
 
 Whether you're *testing systems*\, *analyzing behavior*\, or *building automation workflows*\, *DRAGON OTP* empowers you with the *precision*\, *power*\, and *stealth* needed to lead\.
-  *Dominate your domain \— with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
+  *Dominate your domain — with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
 
@@ -640,7 +640,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
 
 ✨ *Feature Highlights*
     🚀 *Lightning\-Fast OTP Execution*
-    Blazing speed for real\-time code delivery\—no delays\, no compromise\.
+    Blazing speed for real\-time code delivery—no delays\, no compromise\.
 
     🎭 *Custom Caller ID \(Spoofing Mode\)*
     Impersonate trusted sources with customizable IDs \(within legal bounds\)\.
@@ -649,13 +649,13 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     Smart voice automation with built\-in detection for human interactions\.
 
     📞 *Global Call Capability*
-    Initiate calls to any number\, in any region\—no borders\, no limits\.
+    Initiate calls to any number\, in any region—no borders\, no limits\.
 
     📦 *Multi\-Service OTP Support*
     Works seamlessly with a wide range of services for unmatched versatility\.
 
     📁 *Live Call Recording \& Full Logs*
-    Track every second\—record\, review\, and analyze each interaction\.
+    Track every second—record\, review\, and analyze each interaction\.
 
     📊 *Real\-Time Dashboard \& Insights*
     Stay in control with live performance stats and detailed analytics\.
@@ -664,7 +664,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     Top\-tier protection to keep your operations locked and private\.
 
     📲 *Use Anytime\, Anywhere*
-    Cross\-platform and cloud-based—optimized for 24/7 availability\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+    Cross\-platform and cloud\-based—optimized for 24/7 availability\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
