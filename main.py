@@ -636,35 +636,17 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         )
             await callback.message.delete()
             image = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(image, caption="""🐲 *DRAGON OTP v2\.0 \— Unique Features That Set You Apart*
+            await callback.message.answer_photo(image, caption="""🐲 *DRAGON OTP v2\.0 — Unique Features That Set You Apart*
 
-✨ *Feature Highlights*
-    🚀 *Lightning\-Fast OTP Execution*
-    Blazing speed for real\-time code delivery—no delays\, no compromise\.
-
-    🎭 *Custom Caller ID \(Spoofing Mode\)*
-    Impersonate trusted sources with customizable IDs \(within legal bounds\)\.
-
-    🔊 *AI Voice Calls with Human Detection*
-    Smart voice automation with built\-in detection for human interactions\.
-
-    📞 *Global Call Capability*
-    Initiate calls to any number\, in any region—no borders\, no limits\.
-
-    📦 *Multi\-Service OTP Support*
-    Works seamlessly with a wide range of services for unmatched versatility\.
-
-    📁 *Live Call Recording \& Full Logs*
-    Track every second—record\, review\, and analyze each interaction\.
-
-    📊 *Real\-Time Dashboard \& Insights*
-    Stay in control with live performance stats and detailed analytics\.
-
-    🔐 *Encrypted \& Secure Access*
-    Top\-tier protection to keep your operations locked and private\.
-
-    📲 *Use Anytime\, Anywhere*
-    Cross\-platform and cloud\-based—optimized for 24/7 availability\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+    🚀 Lightning Fast OTP Delivery  
+    🎭 Custom Caller ID \(Spoofing Mode\)  
+    🔊 AI Voice Calls with Human Detection  
+    📞 Call Any Number Worldwide  
+    📦 Multiple OTP Services Supported  
+    📁 Live Call Recording \& Logs  
+    📊 Real\-Time Dashboard \& Analytics  
+    🔐 Encrypted Access \& Security  
+    📲 Use Anywhere Anytime""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
