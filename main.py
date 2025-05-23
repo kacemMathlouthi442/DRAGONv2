@@ -134,7 +134,7 @@ async def send_local_video(message: Message): #DONE
             await message.answer("⌛ Please wait.")
             sleep(5)
             redeem_token(user_id,True)
-            await message.answer("✅ API Token redeemed successfuly!")
+            await message.answer("✅ IP activator redeemed successfuly!\n\nYou can redeem your key now.")
         else:
             if args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa1':
                 if is_user_useAPI(user_id):
@@ -152,7 +152,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa2':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -169,7 +169,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa7':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -186,7 +186,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC14':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -203,7 +203,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC30':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -220,7 +220,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC60':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -237,7 +237,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhCaN':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -254,7 +254,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhClT':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -271,7 +271,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP1-C4awb4Vf1KJp7P4LhCaN':
                 sleep(1)
                 await message.answer("⌛ Please wait.")
@@ -508,7 +508,7 @@ async def send_local_video(message: Message):
                     sleep(1)
                     await message.answer("📞 Call INITIATED")
                     sleep(8)
-                    await message.answer("❌ ERROR[302]\n\n Sorry your country doesen't support the spofing.\n\nYou have to Buy a premium access.\n\n❕ the call from your country it's soo expensive in the premium access you will get a full control of the bot but you have to cost more.\nSorry for your time and thanks for your attention.\nContact the support to buy a premium subscription.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR[302]\n\n Sorry your country doesen't support the spofing.\n\nYou have to Buy a premium access.\n\n❕ With the premium access you can make calls from other countrys like USA UK... and get a full controll in the bot\nSorry for your time and thanks for your attention.\nContact the support to buy a premium subscription.",reply_markup=keyboard)
                 elif not(args[1].isdecimal()) or not(args[1][0]=='+') or (args[2].isdecimal() ) or (args[2][0]=='+'):
                     await message.answer("You have to type a valid phone number start with +")
                 elif not(args[3].isdecimal()):
