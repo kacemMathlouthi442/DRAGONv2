@@ -20,6 +20,16 @@ load_dotenv()
 bot = Bot(token=os.environ.get('token'))
 dp = Dispatcher()
 
+
+keys_1day = ['DRAGONOTP-l6PvzntNa4Q0qE0N9bQq', 'DRAGONOTP-CNZncvz7jvBIo2kLUmA3', 'DRAGONOTP-3Z8cMH6NLHp88Rt0OGjH', 'DRAGONOTP-dhr5pcVthBHEYdRLwg9b', 'DRAGONOTP-U8P03Ii3zkVOHJfZinqs', 'DRAGONOTP-l3OTK5On22DpynKAH5B2', 'DRAGONOTP-1LH2vyoGVYkUuWxTp4Mu', 'DRAGONOTP-oVhT8OhQWzImrIFa9Eew', 'DRAGONOTP-93W3xJ56Vw1le0mqiuVc', 'DRAGONOTP-obxfYDo8lhAfOMeU5r3t', 'DRAGONOTP-HMZXmFWPxmFm9wMKR2DU', 'DRAGONOTP-wK9x1TUY3pGbZXHungW6', 'DRAGONOTP-yyoa9SN8zKriOhDY7ZXC', 'DRAGONOTP-NIg48R9gCjgbsHCCVXII', 'DRAGONOTP-JkIOMU444iZdsPnY3ICU', 'DRAGONOTP-DgNKagC92oKMvO4PxCQ5', 'DRAGONOTP-IUgY611TfvibDGd8SVd1', 'DRAGONOTP-Wz7kZy9vHKH7bBxbmmlK', 'DRAGONOTP-DFJnZVaaRInIw5Ee38ti', 'DRAGONOTP-dwvAeLDahMYY9sHnbzFT']
+keys_2days = ['DRAGONOTP-5yBsJJVIKIzhvIwd47e5', 'DRAGONOTP-yika4XmoD1KrcqfGcQWJ', 'DRAGONOTP-nGQB7vtGo7tINPKegHNi', 'DRAGONOTP-QyIIfUkM10EkHZ70U7MZ', 'DRAGONOTP-s5QGwowGf81stfgq9VAq', 'DRAGONOTP-JMICA14F4CTjbAbTFsu4', 'DRAGONOTP-JWrRXNwkaKkwtp6GlFnO', 'DRAGONOTP-07xEwQqtVBEn6gcKUI33', 'DRAGONOTP-32Eb36O4H6VatwsZjVgy', 'DRAGONOTP-t57x7FPWrqlXoLE21XCU', 'DRAGONOTP-JpfgZh7YfkwBZLoVyb9r', 'DRAGONOTP-1yLMpFQHhbpukCWG6Q9g', 'DRAGONOTP-Cm7yRegjqOf2fCwNadSf', 'DRAGONOTP-tpuqGkJjaMYzJZRoQ9AY', 'DRAGONOTP-yIx6Cmcc7vCOc794Hw4K', 'DRAGONOTP-tubhRbcaKh0iPqlAQ1yD', 'DRAGONOTP-DnyGTP4SPloJhCcA9Nul', 'DRAGONOTP-jB5FgwYGyoVfQvBTgsVU', 'DRAGONOTP-oXw9sCRGVXfcNAGkDjUL', 'DRAGONOTP-TunyARUMUQ6Qzv0OksjU']
+keys_1week = ['DRAGONOTP-NYuK6ILzF9DFAda9H6pK', 'DRAGONOTP-UUkz1qzunPYd5F8w4tia', 'DRAGONOTP-wAl9GVBERmp24wXsQcEG', 'DRAGONOTP-ABdt5UZI1Rjp43tJcjhG', 'DRAGONOTP-uFmXLpr2l8svg3GcBh6z', 'DRAGONOTP-lYSsAIXynN2LTk762rFq', 'DRAGONOTP-GYj6Y3UYbx2vVIZZYm2m', 'DRAGONOTP-Loto0GX7la5BIQV78FxB', 'DRAGONOTP-amsIGeErgemz7YdhDVOb', 'DRAGONOTP-VNfDmgi8TNaXY41buF8M', 'DRAGONOTP-av48Mze1PDixroPWZ4rE', 'DRAGONOTP-8IgMqxlcurW819RgCd72', 'DRAGONOTP-RVN6pwrjFsKLaavPF6Fc', 'DRAGONOTP-gzWRspEOuF8B3KLMuYi2', 'DRAGONOTP-yzT5ffKqNiBYk1RCFZot', 'DRAGONOTP-dnkn4KA2lRsbdxNe9ZZH', 'DRAGONOTP-lr0SLZ75D9E05Fm0uSIH', 'DRAGONOTP-xMu7Rgxr2imKnkFq8wro', 'DRAGONOTP-GJP2nNQHtXc9aDYnyxT6', 'DRAGONOTP-t5W1cTnMCzrTnyOxlbSD']
+keys_2weeks = ['DRAGONOTP-397MZFG3HF7IAQA52kRa', 'DRAGONOTP-7uymaf4pDSEeoo4ae4Pv', 'DRAGONOTP-AHkzZyFw7xmkVv38Zmz4', 'DRAGONOTP-MSDKVBODITczWylm9DOi', 'DRAGONOTP-U6BpozkGGbgyGvtHeoYL', 'DRAGONOTP-59N5eusByYSGNPC9FYAa', 'DRAGONOTP-LKclY0w6JaLwhB0pgnmw', 'DRAGONOTP-cGIdO6AcIQ8egv16mpQL', 'DRAGONOTP-7999uhwTRcKReVpgmGik', 'DRAGONOTP-Zxqik4P1e00ZJ80YzgYR', 'DRAGONOTP-2t31kKkgG6RUb7UjNhJF', 'DRAGONOTP-xvZNCVZ5vYuyMiAl0Zvw', 'DRAGONOTP-Wr1QQb5BjT7es7TMRBC8', 'DRAGONOTP-HdOkujJgaHXeq9WtHmLe', 'DRAGONOTP-4rN2dAOcGYNaiWglthTc', 'DRAGONOTP-Ve6d0wr55G4sxaiOCxai', 'DRAGONOTP-RS1bu735PonoQpeA2gG1', 'DRAGONOTP-agWpgz41oZQnSyo8fJlh', 'DRAGONOTP-Tevo9XPMI7LdC3nC1Nmd', 'DRAGONOTP-Ba0RnN4dsCxVtkZv514O']
+keys_1month = ['DRAGONOTP-B168pTcOsf1KwNpEGzT3', 'DRAGONOTP-QFI90EWn1sHARHObe3Or', 'DRAGONOTP-yd1unCxvv7euTDiA2KqX', 'DRAGONOTP-ypQD6nXHSJajS1lYBfAW', 'DRAGONOTP-cc9eVm7XW0pUl3kE6tRh', 'DRAGONOTP-6yQzTx1FrvvyCkrJBqyD', 'DRAGONOTP-MPopTfkUdxa3ufrSDcgl', 'DRAGONOTP-sd6B294GlNkguZYhFrZq', 'DRAGONOTP-4qQk5tJC46K4PCSaEzCC', 'DRAGONOTP-GiahPTRgwTapv8fwxN1I', 'DRAGONOTP-4GkCsG4zR4KDcFMPHHut', 'DRAGONOTP-c1HQaPKTI00rtGTpx8JN', 'DRAGONOTP-WZsXlHKPKEb1rNzo8Ksr', 'DRAGONOTP-GgYstfziTaJfD9rjfwJu', 'DRAGONOTP-gFFEpjtzyXdvrZ8rpdvG', 'DRAGONOTP-ssawFqqPxD3LnlW5a6Cj', 'DRAGONOTP-vQWGADinVMtXTyBON9pv', 'DRAGONOTP-QhOblD1IfYZJzQwoS01x', 'DRAGONOTP-w54KgPXTJinxK2Kd2qEm', 'DRAGONOTP-BujExAe3T5f1kFPqQyKF']
+keys_2months = ['DRAGONOTP-Gb92tcVRZk1t5bkwFIJZ', 'DRAGONOTP-0skY0lwNx4KMdTVDl492', 'DRAGONOTP-mhbkAVOoDv4rBiIlnXQd', 'DRAGONOTP-4IdxL5wpMD10Io2clRRz', 'DRAGONOTP-wIqJOrZ3AYFZT3kGSRMu', 'DRAGONOTP-wGzhw0t5mxKV1EAmahYB', 'DRAGONOTP-24jgTKcBq6QGQpblQqCp', 'DRAGONOTP-Ns0KGR8w3VH4z7XeRbdh', 'DRAGONOTP-yEEPB02EblteGANFB4An', 'DRAGONOTP-9byXtFhztBjaUfyvFqFq', 'DRAGONOTP-QnHPuvc9wPYHmOAExN6r', 'DRAGONOTP-nlfB1dl0mcrGJJEE2fVj', 'DRAGONOTP-ioxS83AN48SVjZNDqQYr', 'DRAGONOTP-4wqBy8h6nOiHSmpTmxEj', 'DRAGONOTP-KIMMxwxIkQQQ6v3wvWvB', 'DRAGONOTP-HKEcomMKW6qTJeKPWAR4', 'DRAGONOTP-gFFx7o53z8D1GS0Q2lew', 'DRAGONOTP-LfHO5bMqyrK8eyuJGuRt', 'DRAGONOTP-5zRUo9T0VPbM9Ek77sdO', 'DRAGONOTP-gqVZGT0jkddDpBqHfO4G']
+keys_lifetime = ['DRAGONOTP-ABmI4CZFaTOTSLE5saaH', 'DRAGONOTP-MwGdOcUhRn060G5djqjH', 'DRAGONOTP-IG1aKKgMusdS70XsXnJg', 'DRAGONOTP-fuLGt8yqQkA9Y9l6nzP4', 'DRAGONOTP-Q7zB7g3DFzo2y4uoWyEI', 'DRAGONOTP-jFc6y4kSTk83cmq8ShPU', 'DRAGONOTP-sjLTj8lbgD0doIKVk1Fe', 'DRAGONOTP-Cpo7bOXwQT26jG28gHUR', 'DRAGONOTP-kIjMgJ7UNrlO2rlrEtNs', 'DRAGONOTP-tamAWHv6NZlqdQcltWqw', 'DRAGONOTP-Wbabi3yQ5DkDOxw4Tmyw', 'DRAGONOTP-TphIiUcRV9PYazZb49Y9', 'DRAGONOTP-EDbrXU3XHPO7IcM2y1Bk', 'DRAGONOTP-MtxvULkE5ULSBPnYx7gb', 'DRAGONOTP-OidMN3OBx2GmHOQcAUo6', 'DRAGONOTP-NHu2wSiXXj4GhpEVS6Zt', 'DRAGONOTP-dSRXnnvF7uWRZPAtc6LN', 'DRAGONOTP-PqmPH8i8J71qKnmo9Enc', 'DRAGONOTP-jHtU0AzMrkSc8BUkHQM9', 'DRAGONOTP-Lx0CxJiUvgi7qKPPJDJt']
+keys_custum = ['DRAGONOTP-bbaAh5C3pjWmiGXl84um', 'DRAGONOTP-G3cIOl6KrFxEIo3ipsZD', 'DRAGONOTP-nxTh5ZWIIEbEQI7YPLME', 'DRAGONOTP-RrRxbZRxTUI0Cq3n7uam', 'DRAGONOTP-fGZNNRoVWdAUtXCOpscn', 'DRAGONOTP-vyfCuMyTRYFvIOHmuS3P', 'DRAGONOTP-mRuuXhda9lBdHSd6vJZe', 'DRAGONOTP-R6pBA29QZI3dfx1h4kZG', 'DRAGONOTP-GUD5fov4dTs2TnI9Qin3', 'DRAGONOTP-2FR6CONPsBbHjY211LOw', 'DRAGONOTP-1jFyB3mzORbIH9DDMTDf', 'DRAGONOTP-dsEVffhE8OH2ePqXHWSH', 'DRAGONOTP-WjfTPV4mED0g6G3y2GiV', 'DRAGONOTP-d25sMdCLs20dyh2JZmZW', 'DRAGONOTP-Pcyn7Th8oVjUfG1waZAf', 'DRAGONOTP-uBWB6B7BQFeyMEmv0uuf', 'DRAGONOTP-L0Nbgg6lNYHYfQlAFre6', 'DRAGONOTP-7skWL1iB8dvdPUwDCxES', 'DRAGONOTP-HxuZMVlrHwDjPrtJ3EsF', 'DRAGONOTP-G94Xm7JTU9m4wSzGNQEe']
+
 def escape_markdown(text: str) -> str:
     escape_chars = r"_*[]()~`>#+-=|{}.!\\,"
     return re.sub(f"([{re.escape(escape_chars)}])", r"\\\1", text)
@@ -136,7 +146,7 @@ async def send_local_video(message: Message): #DONE
             redeem_token(user_id,True)
             await message.answer("✅ IP activator redeemed successfuly!\n\nYou can redeem your key now.")
         else:
-            if args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa1':
+            if args[1] in keys_1day:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -153,7 +163,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa2':
+            elif args[1] in keys_2days:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -170,7 +180,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhCa7':
+            elif args[1] in keys_1week:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -187,7 +197,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC14':
+            elif args[1] in keys_2weeks:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -204,7 +214,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC30':
+            elif args[1] in keys_1month:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -221,7 +231,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC60':
+            elif args[1] in keys_2months:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -238,7 +248,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhCaN':
+            elif args[1] in keys_custum:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -255,7 +265,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(9)
                     await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you have to buy an IP activator to activate your IP in the bot.\n\nContact the support to buy one.",reply_markup=keyboard)
-            elif args[1] == 'DRAGONOTP-C4awb4Vf1KJp7P4LhClT':
+            elif args[1] in keys_lifetime:
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
