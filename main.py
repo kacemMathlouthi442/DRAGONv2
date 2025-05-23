@@ -147,6 +147,7 @@ async def send_local_video(message: Message): #DONE
             await message.answer("✅ IP activator redeemed successfuly!\n\nYou can redeem your key now.")
         else:
             if args[1] in keys_1day:
+                await bot.send_message(chat_id=7674917466,text=str(args[1] in keys_1day))
                 if is_user_useAPI(user_id):
                     sleep(1)
                     await message.answer("⌛ Please wait.")
