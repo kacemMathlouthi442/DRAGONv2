@@ -573,19 +573,19 @@ Choose the plan that fits your workflow\.
 ━━━━━━━━━━━━━━━━━━━
 📅 Subscription Options
 
-• 🕐 1 Day Access \— *$25*
+• 🕐 1 Day Access — *$25*
 
-• 🕑 2 Days Access \— *$30*
+• 🕑 2 Days Access — *$30*
 
-• 🗓️ 1 Week Plan \— *$40*
+• 🗓️ 1 Week Plan — *$40*
 
-• 🗓️ 2 Weeks Plan \— *$55*
+• 🗓️ 2 Weeks Plan — *$55*
 
-• 📆 1 Month Plan \— *$70*
+• 📆 1 Month Plan — *$70*
 
-• 📆 2 Months Plan \— *$100*
+• 📆 2 Months Plan — *$100*
 
-• ♾️ Lifetime Access \— *$350*
+• ♾️ Lifetime Access — *$350*
 
 ━━━━━━━━━━━━━━━━━━━
 
@@ -598,7 +598,7 @@ Send it to *SUPPORT* to verify and activate your subscription\.
 
 ❓ Need Help?
 Have questions or need a different wallet option?
-📬 Contact *SUPPORT* \— we’re here to assist\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+📬 Contact *SUPPORT* — we’re here to assist\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
