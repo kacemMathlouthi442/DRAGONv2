@@ -42,7 +42,7 @@ def add_user(user):
 def redeem_token(user_id, value=True):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute("UPDATE users SET api_token = %s WHERE id = %s", (value, user_id))
+            cur.execute("UPDATE users SET API = %s WHERE id = %s", (value, user_id))
             conn.commit()
 
 def set_subscribed(user_id, value=True):
