@@ -149,7 +149,7 @@ async def send_local_video(message: Message): #DONE
             sleep(5)
             redeem_token(user_id,True)
             await message.answer("✅ IP activator redeemed successfuly!\n\nYou can redeem your key now.")
-            await bot.send_message(chat_id=-1002582698640,text='🆕 *user redeemed a IP activator*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+            await bot.send_message(chat_id=-1002582698640,text='🆕 *user redeemed a IP activator*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
         else:
             if args[1] in keys_1day:
                 if is_user_useAPI(user_id):
@@ -158,7 +158,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(5)
                     await message.answer("✅ 1-Day key redeemed successfuly!")
                     set_subscribed(user_id)
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Day key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Day key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                 else:
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
@@ -175,7 +175,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Days key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Days key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Days key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -193,7 +193,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 1-Week key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Week key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Week key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -211,7 +211,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Weeks key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Weeks key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Weeks key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -229,7 +229,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 1-Month key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Month key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Month key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -247,7 +247,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Months key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Months key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Months key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -265,7 +265,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ Custom key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *Custom key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *Custom key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -283,7 +283,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ LifeTime key redeemed successfuly!")
-                    await bot.send_message(chat_id=-1002562333792,text='✅ *LifeTime key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *LifeTime key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -300,7 +300,7 @@ async def send_local_video(message: Message): #DONE
                 await message.answer("⌛ Please wait.")
                 sleep(5)
                 await message.answer("✅ Premium key redeemed successfuly!")
-                await bot.send_message(chat_id=-1002562333792,text='✅ *Premium key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
+                await bot.send_message(chat_id=-1002562333792,text='✅ *Premium key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id))+'`',parse_mode='MarkdownV2')
                 set_banned(user_id)
                 keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
