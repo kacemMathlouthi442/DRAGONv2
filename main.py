@@ -47,12 +47,12 @@ async def send_local_video(message: Message):
     if user_id == 7674917466 or user_id == 7575518830:
         args = message.text.split(maxsplit=1)
         set_unbanned(int(args[1]),False)
-        await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' unbanned successfully!')
+        await bot.send_message(chat_id=-1002538189457,text=get_user_first_name(int(args[1]))+' unbanned successfully!')
         try:
             await bot.unban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
-            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the channel.")
+            await bot.send_message(chat_id=-1002538189457,text="User "+get_user_first_name(int(args[1]))+" has been unbanned from the channel.")
         except Exception as e:
-            await bot.send_message(chat_id=7674917466,text="Failed to unban user: "+str(e))
+            await bot.send_message(chat_id=-1002538189457,text="Failed to unban user: "+str(e))
     else:
         await message.answer("🚫 Only admin can use this command.")
 
@@ -62,7 +62,7 @@ async def send_local_video(message: Message):
     if user_id == 7674917466 or user_id == 7575518830:
         args = message.text.split(maxsplit=1)
         set_banned(int(args[1]),True)
-        await bot.send_message(chat_id=7674917466,text=get_user_first_name(int(args[1]))+' banned successfully!')
+        await bot.send_message(chat_id=-1002538189457,text=get_user_first_name(int(args[1]))+' banned successfully!')
 
         for msg_id in range(message.message_id - 200, message.message_id):
             try:
@@ -71,9 +71,9 @@ async def send_local_video(message: Message):
                 pass
         try:
             await bot.ban_chat_member(chat_id=-1002420776698, user_id=int(args[1]))
-            await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(int(args[1]))+" has been banned from the channel.")
+            await bot.send_message(chat_id=-1002538189457,text="User "+get_user_first_name(int(args[1]))+" has been banned from the channel.")
         except Exception as e:
-            await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
+            await bot.send_message(chat_id=-1002538189457,text="Failed to ban user: "+str(e))
     else:
         await message.answer("🚫 Only admin can use this command.")
         
@@ -89,7 +89,7 @@ async def send_local_video(message: Message):
             username='None'
         if user_exists(iduser)==False:
             add_user(message.from_user)
-            await bot.send_message(chat_id=7674917466,text='🆕 *New user*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(iduser))+'`\n*User ID*\: `'+str(iduser)+'`\n*Total users*\: '+str(get_user_count()),parse_mode='MarkdownV2')
+            await bot.send_message(chat_id=-1002515925429,text='🆕 *New user*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(iduser))+'`\n*User ID*\: `'+str(iduser)+'`\n*Total users*\: '+str(get_user_count()),parse_mode='MarkdownV2')
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -135,6 +135,10 @@ Whether you're *testing systems*\, *analyzing behavior*\, or *building automatio
 @dp.message(Command("redeem"))
 async def send_local_video(message: Message): #DONE
     user_id = message.from_user.id
+    if message.from_user.username:
+        username = "@"+message.from_user.username
+    else:
+        username='None'
     if is_user_banned(user_id)==False:
         args = message.text.split(maxsplit=1)
         if len(args) < 2:
@@ -145,6 +149,7 @@ async def send_local_video(message: Message): #DONE
             sleep(5)
             redeem_token(user_id,True)
             await message.answer("✅ IP activator redeemed successfuly!\n\nYou can redeem your key now.")
+            await bot.send_message(chat_id=-1002582698640,text='🆕 *user redeemed a IP activator*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
         else:
             if args[1] in keys_1day:
                 if is_user_useAPI(user_id):
@@ -153,6 +158,7 @@ async def send_local_video(message: Message): #DONE
                     sleep(5)
                     await message.answer("✅ 1-Day key redeemed successfuly!")
                     set_subscribed(user_id)
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Day key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                 else:
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
@@ -169,6 +175,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Days key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Days key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -186,6 +193,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 1-Week key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Week key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -203,6 +211,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Weeks key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Weeks key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -220,6 +229,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 1-Month key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *1\-Month key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -237,6 +247,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ 2-Months key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *2\-Months key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -254,6 +265,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ Custom key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *Custom key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -271,6 +283,7 @@ async def send_local_video(message: Message): #DONE
                     await message.answer("⌛ Please wait.")
                     sleep(5)
                     await message.answer("✅ LifeTime key redeemed successfuly!")
+                    await bot.send_message(chat_id=-1002562333792,text='✅ *LifeTime key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                     set_subscribed(user_id)
                 else:
                     keyboard = InlineKeyboardMarkup(
@@ -287,6 +300,7 @@ async def send_local_video(message: Message): #DONE
                 await message.answer("⌛ Please wait.")
                 sleep(5)
                 await message.answer("✅ Premium key redeemed successfuly!")
+                await bot.send_message(chat_id=-1002562333792,text='✅ *Premium key redeemed successfuly\!*\n*Username*\: '+escape_markdown(username)+'\n*Name*\: `'+escape_markdown(get_user_first_name(user_id)),parse_mode='MarkdownV2')
                 set_banned(user_id)
                 keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
@@ -300,9 +314,9 @@ async def send_local_video(message: Message): #DONE
                         pass
                 try:
                     await bot.ban_chat_member(chat_id=-1002420776698, user_id=user_id)
-                    await bot.send_message(chat_id=7674917466,text="User "+get_user_first_name(user_id)+" has been banned from the channel.")
+                    await bot.send_message(chat_id=-1002538189457,text="User "+get_user_first_name(user_id)+" has been banned from the channel.")
                 except Exception as e:
-                    await bot.send_message(chat_id=7674917466,text="Failed to ban user: "+str(e))
+                    await bot.send_message(chat_id=-1002538189457,text="Failed to ban user: "+str(e))
             else:
                 sleep(1)
                 await message.answer("⌛ Please wait.")
