@@ -34,9 +34,9 @@ def escape_markdown(text: str) -> str:
     escape_chars = r"_*[]()~`>#+-=|{}.!\\,"
     return re.sub(f"([{re.escape(escape_chars)}])", r"\\\1", text)
 
-async def is_user_subscribed_channel(bot: Bot, user_id, channel):
+async def is_user_subscribed_channel(bot: Bot, user_id):
     try:
-        member: ChatMember = await bot.get_chat_member(chat_id=channel, user_id=user_id)
+        member: ChatMember = await bot.get_chat_member(chat_id=-1002587785946, user_id=user_id)
         return member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.CREATOR, ChatMemberStatus.ADMINISTRATOR]
     except:
         return True
@@ -96,8 +96,8 @@ async def send_local_video(message: Message):
                 InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
             ],
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches"),
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
+                InlineKeyboardButton(text="✅ Vouches", url="https://t.me/+8RYbAV8msENmNDZk"),
             ],
             [
                 InlineKeyboardButton(text="⚙️ Commands", callback_data="Commands"),
@@ -329,8 +329,7 @@ async def send_local_video(message: Message): #DONE
 async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             if is_user_subscribe(user_id):
                 keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -378,7 +377,7 @@ async def send_local_video(message: Message):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -397,8 +396,7 @@ async def send_local_video(message: Message):
 async def send_local_video(callback: CallbackQuery):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             await callback.message.delete()
             keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -406,8 +404,8 @@ async def send_local_video(callback: CallbackQuery):
                     InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
                 ],
                 [
-                    InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
-                    InlineKeyboardButton(text="✅ Vouches", url="https://t.me/DRAGONv2_vouches"),
+                    InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
+                    InlineKeyboardButton(text="✅ Vouches", url="https://t.me/+8RYbAV8msENmNDZk"),
                 ],
                 [
                     InlineKeyboardButton(text="⚙️ Commands", callback_data="Commands"),
@@ -446,8 +444,7 @@ Whether you're *testing systems*\, *analyzing behavior*\, or *building automatio
 async def handle_vote(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -488,7 +485,7 @@ async def handle_vote(callback: CallbackQuery, bot: Bot):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -510,7 +507,6 @@ async def handle_vote(callback: CallbackQuery, bot: Bot):
 async def send_local_video(message: Message):
     user_id = message.from_user.id
     if is_user_banned(user_id)==False:
-        channel = "@dragonotpchannel"
         if is_user_subscribe(user_id):
             args = message.text.split(maxsplit=3)
             if len(args)!=4:
@@ -537,7 +533,7 @@ async def send_local_video(message: Message):
                     await message.answer("You have to type a valid phone number start with +")
                 elif not(args[3].isdecimal()):
                     await message.answer("The digits must be between 4 and 8")
-        elif await is_user_subscribed_channel(bot, user_id, channel):
+        elif await is_user_subscribed_channel(bot, user_id):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -553,7 +549,7 @@ async def send_local_video(message: Message):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -573,8 +569,7 @@ async def send_local_video(message: Message):
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -627,7 +622,7 @@ Have questions or need a different wallet option?
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel")
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -649,8 +644,7 @@ Have questions or need a different wallet option?
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -675,7 +669,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel"),
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
@@ -697,8 +691,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
 async def handle_vote1(callback: CallbackQuery, bot: Bot):
     user_id = callback.from_user.id
     if is_user_banned(user_id)==False:
-        channel_username = "@dragonotpchannel"
-        if await is_user_subscribed_channel(bot, user_id, channel_username):
+        if await is_user_subscribed_channel(bot, user_id):
             if is_user_subscribe(user_id):
                 keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -741,7 +734,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🌐 Community", url="https://t.me/dragonotpchannel")
+                InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk")
             ],
             [
                 InlineKeyboardButton(text="📍 I've Subscribed", callback_data="start")
