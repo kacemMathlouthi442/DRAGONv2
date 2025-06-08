@@ -93,7 +93,7 @@ async def send_local_video(message: Message):
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
@@ -163,7 +163,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -181,7 +181,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -199,7 +199,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -217,7 +217,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -235,7 +235,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -253,7 +253,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -271,7 +271,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -289,7 +289,7 @@ async def send_local_video(message: Message): #DONE
                     keyboard = InlineKeyboardMarkup(
                     inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ]])
                     sleep(1)
                     await message.answer("⌛ Please wait.")
@@ -305,7 +305,7 @@ async def send_local_video(message: Message): #DONE
                 keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                 ]])
                 for msg_id in range(message.message_id - 200, message.message_id):
                     try:
@@ -401,7 +401,7 @@ async def send_local_video(callback: CallbackQuery):
             keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                 ],
                 [
                     InlineKeyboardButton(text="🌐 Community", url="https://t.me/+Wc24-YTnfAdiMTVk"),
@@ -518,7 +518,7 @@ async def send_local_video(message: Message):
                     keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                        InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                     ],
                     [
                         InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
@@ -573,7 +573,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="💲 USDT", callback_data="usdt"),
@@ -729,7 +729,7 @@ async def handle_vote1(callback: CallbackQuery, bot: Bot):
     ⚠️ No Active License Detected\!
 
     🔐 To activate the bot, you must first purchase a license\.
-    💸 We recommend getting a [LICENSE BUNDLE](https\://t\.me/dragonotpowner) for exclusive features and the best discounted price\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
+    💸 We recommend getting a [LICENSE BUNDLE](https\://t\.me/jhon13547) for exclusive features and the best discounted price\!""",parse_mode='MarkdownV2',reply_markup=keyboard)
         else:
             keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
@@ -758,7 +758,7 @@ async def handle_vote1(callback: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
@@ -780,7 +780,7 @@ async def handle_vote1(callback: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
@@ -801,7 +801,7 @@ async def handle_vote1(callback: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
@@ -822,7 +822,7 @@ async def handle_vote1(callback: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-            InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+            InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
             ],
             [
                 InlineKeyboardButton(text="🔙 BACK TO MENU", callback_data="start")
@@ -843,7 +843,7 @@ async def unknown_command(message: Message):
         keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                 ]])
         await message.answer("❌ Unknown command. Contact the support for help.",reply_markup=keyboard)
     else:
@@ -857,7 +857,7 @@ async def unknown_text(message: Message):
         keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="📞 Support", url="https://t.me/dragonotpowner")
+                    InlineKeyboardButton(text="📞 Support", url="https://t.me/jhon13547")
                 ]])
         await message.answer("🤖 Sorry I didn't understand that. Please contact the support for any question.",reply_markup=keyboard)
     else:
